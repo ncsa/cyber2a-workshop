@@ -18,6 +18,8 @@ cython_debug/
 # data folder
 # **/*data
 
+**/*.ipynb_checkpoints
+
 # model checkpoints
 **/*.pt
 
