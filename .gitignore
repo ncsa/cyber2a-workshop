@@ -23,6 +23,10 @@ cython_debug/
 # model checkpoints
 **/*.pt
 
-
 # env
 **/*.env
+
+# qmd files
+**/*_files/
+**/hello_files/
+**/*hello.*
