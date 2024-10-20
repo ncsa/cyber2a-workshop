@@ -1,0 +1,102 @@
+---
+title: 'Foundation Models: The Cornerstones of Modern AI'
+---
+
+
+## Instructors
+
+* Sandeep Puthanveetil Satheesan <sandeeps@illinois.edu>, Sr. Research Software Engineer National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign 
+* Minu Mathew <minum@illinois.edu>, Research Software Engineer National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign 
+
+## Overview
+
+Foundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks (language, vision, reasoning etc.). In this chapter, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This chapter will be a precursor to the hands-on session that follows on the same topic.
+
+![Image source: 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](images/foundation_models.png)
+
+
+In this session, we take a closer look at what constitutes a foundation model, a few examples, and some basic principles around how it works.
+
+## Outline 
+1. Overview of foundation models
+2. Types of foundation models
+3. Architecture
+3. Segment Anything Model (SAM 2)
+4. Retrieval Augmented Generation
+
+
+## Introduction
+
+### Traditional ML vs Deep Learning vs Foundation Models
+
+**Traditional machine learning** involves algorithms that learn patterns from structured data. Techniques like decision trees, support vector machines, and linear regression fall under this category. These methods often require feature engineering, where domain knowledge is used to select and transform input features to improve model performance. Traditional machine learning excels in scenarios with limited data and interpretable results.
+
+**Deep learning** is a subset of machine learning that employs neural networks with multiple layers (hence "deep"). These models automatically learn features from raw data, making them particularly powerful for complex tasks like image and speech recognition. Deep learning excels with large datasets and can capture intricate patterns but often requires significant computational resources and can be harder to interpret compared to traditional methods.
+
+**Foundation models**, such as GPT and BERT, represent a new paradigm in AI. These large-scale models are pre-trained on vast amounts of data and can be fine-tuned for specific tasks with minimal additional training. Earlier neural networks were narrowly tuned for specific tasks. With a little fine-tuning, foundation models can handle jobs from translating text to analyzing medical images. Foundation models generally learn from unlabeled datasets, saving the time and expense of manually describing each item in massive collections. Foundation models leverage transfer learning, allowing them to generalize across different tasks more effectively than traditional machine learning and deep learning models.
+
+
+## Foundation Models
+
+Foundation models, introduced in 2021 by Standford Researchers [@Bommasani2021FoundationModels], are characterized by their enormous neural networks trained on vast datasets through self-supervised learning. These models serves as a "foundation" on which many task-specific models can be built by adaptation. Their capabilities improves with more data, requiring substantial computational power for training. These models can be adapted to various downstream tasks and are designed for reuse, leveraging transfer learning to enhance performance across different applications.
+
+::: {.column-margin}
+![2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](images/foundation_models_paper.png)
+:::
+
+With the start of availability of big data for training, evidence showed that performance improves with size. The field came to the conclusion that scale matters, and with the right model architecture, intelligence comes with large-scale data. 
+
+Here's a few examples of foundaiton models and their parameter count:
+
+* CLIP [@DBLP:journals/corr/abs-2103-00020] - 63 million parameters
+* BERT [@DBLP:journals/corr/abs-1810-04805] - 345 million parameters
+* GPT-3 [@DBLP:journals/corr/abs-1810-04805] - 175 billion parameters
+    * Wikipedia consists of only 3% of its training data
+* GPT-4 [@openai2024gpt4technicalreport] - 1.8 trillion parameters
+
+![Growth in compute power. (Source: GPT-3 paper[@DBLP:journals/corr/abs-1810-04805])](images/compute-power-training.png)
+
+### Types of foundation models
+
+Foundation models can be classified on the basis of its modality and its underlying architecture.
+
+| Criteria: Modality    | Criteria: Architecture |
+| -------- | ------- |
+| Language Models  | Transformer Models   |
+| Vision Models | Generative Models     |
+| Multimodal Models    | Diffusion Models    |
+
+#### Types of foundation models (Modality)
+
+##### Language models
+
+Language models are trained for natural language processing tasks. The primary training objective for LLMs is often next-token prediction, where the model learns to predict the next word in a sequence given the preceding context. This is achieved through a vast amount of text data, enabling the model to learn grammar, facts, and even some reasoning patterns. LLMs tend to be good at various NLP related tasks, like translation, conversational AI, sentiment analysis, content summarization etc., to name a few.
+
+Here's some examples of language models:
+
+* GPT-3
+* GPT-4
+* Llama 3.2 [@dubey2024llama3herdmodels]
+
+##### Vision models
+
+Vision models are trained for computer vision tasks. The primary training objective of vision models is to effectively learn representations that enable accurate predictions or useful transformations based on visual data. Vision models tend to be good at tasks like object detection, segmentation, facial recognition, etc.
+
+Here's some examples of vision models:
+
+* [GPT-4-turbo](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4)
+* SAM [@kirillov2023segment]
+* CLIP [@dubey2024llama3herdmodels]
+* Swin-transformer [@liu2021swintransformerhierarchicalvision]
+
+##### Multimodal models
+
+Multimodal models are designed to process and understand multiple types of data modalities, such as text, images, audio, and more. These models can handle various data types simultaneously, allowing them to learn relationships and correlations between different forms of information (e.g., associating text descriptions with images). By training on datasets that include multiple modalities, multimodal foundation models learn to create a unified representation space where different types of data can be compared and processed together. This often involves shared architectures for encoding different modalities. These models can often perform well on tasks they haven’t been specifically trained on, thanks to their ability to leverage learned relationships across modalities. This makes them versatile for applications in various domains. Many multimodal models, like CLIP and DALL-E, use contrastive learning to improve their understanding of how different modalities relate. They aim to maximize similarity between paired data (e.g., an image and its caption) while minimizing similarity between unrelated pairs. These models can often perform well on tasks they haven’t been specifically trained on, thanks to their ability to leverage learned relationships across modalities. This makes them versatile for applications in various domains. Multimodal foundation models are used in diverse areas such as image and video captioning, visual question answering, cross-modal retrieval, and interactive AI systems that require understanding and generating multiple types of content.
+
+Here's some examples of multimodal foundation models:
+
+* [GPT-4o](https://openai.com/index/hello-gpt-4o/)
+* DALL-E [@DBLP:journals/corr/abs-2102-12092]
+* CLIP [@dubey2024llama3herdmodels]
+* [Sora](https://openai.com/index/sora/) [@liu2024sorareviewbackgroundtechnology]
+* [Gemini](https://gemini.google.com/?utm_source=google&utm_medium=cpc&utm_campaign=2024enUS_gemfeb&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDvtujFotV-ds_t1TWtUmwbeNFLVcdbE8zSQEN08FPlAC8im4lhpNcaAlwaEALw_wcB&gclsrc=aw.ds) [@geminiteam2024geminifamilyhighlycapable]
