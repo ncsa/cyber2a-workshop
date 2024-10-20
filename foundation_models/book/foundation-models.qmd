@@ -100,3 +100,10 @@ Here's some examples of multimodal foundation models:
 * CLIP [@dubey2024llama3herdmodels]
 * [Sora](https://openai.com/index/sora/) [@liu2024sorareviewbackgroundtechnology]
 * [Gemini](https://gemini.google.com/?utm_source=google&utm_medium=cpc&utm_campaign=2024enUS_gemfeb&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDvtujFotV-ds_t1TWtUmwbeNFLVcdbE8zSQEN08FPlAC8im4lhpNcaAlwaEALw_wcB&gclsrc=aw.ds) [@geminiteam2024geminifamilyhighlycapable]
+
+
+#### Types of foundation models (Architecture)
+
+##### Transformer models
+
+

@@ -1,3 +1,32 @@
-torch==2.2.2
-opencv-python==4.10.0.84
-matplotlib==3.9.2
+# nvitop 
+git+https://github.com/XuehaiPan/nvitop.git#egg=nvitop
+# mlflow packages
+mlflow-skinny
+pycocotools
+opencv-python
+# opencv-python==4.10.0.84
+# foundation model packages
+torch
+matplotlib
+# torch==2.2.2
+# matplotlib==3.9.2
+# SAM
+git+https://github.com/facebookresearch/segment-anything-2.git
+# RAG
+python-dotenv
+qdrant-client
+# langchain
+langchain
+langchain-community
+langchain-core
+langchain-openai
+langchain-ollama
+langchainhub
+# openai
+openai
+# rst file loaders
+# pandoc
+pypandoc
+unstructured
+
+
