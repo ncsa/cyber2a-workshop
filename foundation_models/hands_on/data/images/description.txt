@@ -1,1 +1,6 @@
-Images for SAM segmentation
+Images for Segmentation Hands-On using SAM-2
+
+1. Michael Loranty, Elena Forbath, Anna Talucci, Heather Alexander, Jennie DeMarco, Rebecca Hewitt, Jeremy Lichstein, Michelle Mack, Alison Paulson, & Ryan McEwan. (2021). Raw files from flight RU_CYN_TR1_FL018B of the uncrewed aerial vehicle remote sensing imagery of postfire vegetation in Siberian larch forests 2018-2019. Arctic Data Center. doi:10.18739/A28K74X8S.
+    A few RGB images from this dataset are used in this hands-on session.
+2. Jason Amundson. (2019). LeConte Glacier Unmanned Aerial Vehicle (UAV) imagery, LeConte Glacier, Alaska, 2018. Arctic Data Center. doi:10.18739/A2445HC19.
+    Images used in this hands-on session are from the following zip file: https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2445HC19#urn%3Auuid%3Af426289f-43cb-4c74-97ed-e7fc04951fc0

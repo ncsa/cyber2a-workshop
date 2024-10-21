@@ -11,7 +11,11 @@ ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 
 # install drivers
 USER root
-RUN apt-get update && apt-get install -y --no-install-recommends curl unzip git vim
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    unzip \
+    git \
+    vim
 RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb -o cuda-keyring.deb && \
     dpkg -i cuda-keyring.deb && \
     apt-get update && \
@@ -21,11 +25,12 @@ RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu22
     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
 
 # install extra software
-COPY requirements.txt ./
+COPY --chown=jovyan:users requirements.txt ./
 RUN pip install -r requirements.txt
 
 # copy required files
-COPY foundation_models/hands_on ./foundation_models
-COPY mlflow/hands_on ./mlflow
+COPY --chown=jovyan:users foundation_models/hands_on ./foundation_models
+COPY --chown=jovyan:users mlflow/hands_on ./mlflow
 
-
+# switch user to jovyan
+USER jovyan
