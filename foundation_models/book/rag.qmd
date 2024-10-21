@@ -2,6 +2,8 @@
 title: 'Retrieval Augmented Generation'
 ---
 
+# Retrieval Augmented Generation
+
 ## Instructors
 
 * Sandeep Puthanveetil Satheesan <sandeeps@illinois.edu>, Sr. Research Software Engineer, National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign 
