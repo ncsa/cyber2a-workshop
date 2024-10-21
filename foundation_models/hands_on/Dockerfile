@@ -27,7 +27,6 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # install extra software
-USER jovyan
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
@@ -37,10 +36,7 @@ COPY data ./data
 COPY images ./images
 COPY SAM_checkpoints ./SAM_checkpoints
 COPY rag.ipynb ./
-COPY image_predictor_example.ipynb ./
 COPY segmentation.ipynb ./
 
-# Change user permissions
-USER root
-RUN chown -R jovyan:users ./
+# switch user to jovyan
 USER jovyan
