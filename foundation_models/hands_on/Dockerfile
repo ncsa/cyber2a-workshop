@@ -19,7 +19,12 @@ USER root
 #     echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
 #     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
 
-RUN apt-get update && apt-get install -y unzip git 
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    python3-opencv \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 
 # install extra software
 USER jovyan
@@ -33,4 +38,9 @@ COPY images ./images
 COPY SAM_checkpoints ./SAM_checkpoints
 COPY rag.ipynb ./
 COPY image_predictor_example.ipynb ./
+COPY segmentation.ipynb ./
 
+# Change user permissions
+USER root
+RUN chown -R jovyan:users ./
+USER jovyan
