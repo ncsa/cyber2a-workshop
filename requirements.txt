@@ -1,0 +1,28 @@
+# nvitop 
+git+https://github.com/XuehaiPan/nvitop.git#egg=nvitop
+# mlflow packages
+mlflow-skinny
+pycocotools
+opencv-python
+# foundation model packages
+torch
+matplotlib
+# SAM
+git+https://github.com/facebookresearch/segment-anything-2.git
+# RAG
+python-dotenv
+qdrant-client
+# langchain
+langchain
+langchain-community
+langchain-core
+langchain-openai
+langchain-ollama
+langchainhub
+# openai
+openai
+# rst file loaders
+# pandoc
+pypandoc
+unstructured
+
