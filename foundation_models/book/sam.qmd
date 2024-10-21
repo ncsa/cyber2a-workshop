@@ -1,0 +1,11 @@
+---
+title: 'Segment Anything Model'
+---
+
+## Instructors
+
+* Sandeep Puthanveetil Satheesan <sandeeps@illinois.edu>, Sr. Research Software Engineer, National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign 
+* Minu Mathew <minum@illinois.edu>, Research Software Engineer, National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign 
+
+## Overview
+
