@@ -27,16 +27,16 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # install extra software
-COPY requirements.txt ./
+COPY --chown=jovyan:users requirements.txt ./
 RUN pip install -r requirements.txt
 
 # copy required files
-COPY .env ./
-COPY data ./data
-COPY images ./images
-COPY SAM_checkpoints ./SAM_checkpoints
-COPY rag.ipynb ./
-COPY segmentation.ipynb ./
+COPY --chown=jovyan:users .env ./
+COPY --chown=jovyan:users data ./data
+COPY --chown=jovyan:users images ./images
+COPY --chown=jovyan:users SAM_checkpoints ./SAM_checkpoints
+COPY --chown=jovyan:users rag.ipynb ./
+COPY --chown=jovyan:users segmentation.ipynb ./
 
 # switch user to jovyan
 USER jovyan

@@ -27,12 +27,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
 
 # install extra software
-COPY requirements.txt ./
+COPY --chown=jovyan:users requirements.txt ./
 RUN pip install -r requirements.txt
 
 # copy required files
-COPY foundation_models/hands_on ./foundation_models
-COPY mlflow/hands_on ./mlflow
+COPY --chown=jovyan:users foundation_models/hands_on ./foundation_models
+COPY --chown=jovyan:users mlflow/hands_on ./mlflow
 
 # switch user to jovyan
 USER jovyan
