@@ -19,18 +19,24 @@ USER root
 #     echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
 #     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
 
-RUN apt-get update && apt-get install -y unzip git 
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    python3-opencv \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 
 # install extra software
-USER jovyan
-COPY requirements.txt ./
+COPY --chown=jovyan:users requirements.txt ./
 RUN pip install -r requirements.txt
 
 # copy required files
-COPY .env ./
-COPY data ./data
-COPY images ./images
-COPY SAM_checkpoints ./SAM_checkpoints
-COPY rag.ipynb ./
-COPY image_predictor_example.ipynb ./
+COPY --chown=jovyan:users .env ./
+COPY --chown=jovyan:users data ./data
+COPY --chown=jovyan:users images ./images
+COPY --chown=jovyan:users SAM_checkpoints ./SAM_checkpoints
+COPY --chown=jovyan:users rag.ipynb ./
+COPY --chown=jovyan:users segmentation.ipynb ./
 
+# switch user to jovyan
+USER jovyan
