@@ -11,10 +11,11 @@ ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 
 # install drivers
 USER root
-RUN apt-get update && apt-get install -y --no-install-recommends curl unzip git 
+RUN apt-get update && apt-get install -y --no-install-recommends curl unzip git vim
 RUN curl -fsSLO https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb -o cuda-keyring.deb && \
     dpkg -i cuda-keyring.deb && \
-    apt-get install -y --no-install-recommends cuda-cudart-12-2 cuda-compat-12-2 vim && \
+    apt-get update && ]
+    apt-get install -y --no-install-recommends cuda-cudart-12-2 cuda-compat-12-2 && \
     rm -rf /var/lib/apt/lists/* && \
     echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
