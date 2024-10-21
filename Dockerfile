@@ -12,6 +12,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 # install drivers
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
     curl \
     unzip \
     git \
