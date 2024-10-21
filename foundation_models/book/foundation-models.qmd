@@ -221,4 +221,3 @@ Diffusion models, introduced in 2020 [@DBLP:journals/corr/abs-2006-11239], are i
 Diffusion models can generate high-resolution and diverse images, often outperforming GANs in certain tasks. They are generally more stable to train compared to GANs, as they do not rely on adversarial training dynamics.
 
 Stable-diffusion[@DBLP:journals/corr/abs-2112-10752], DALL-E[@DBLP:journals/corr/abs-2102-12092], [Sora](https://openai.com/research/video-generation-models-as-world-simulators) are some of the most common models utilizing diffusion architecture.
-
