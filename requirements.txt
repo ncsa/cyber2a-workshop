@@ -3,7 +3,7 @@ git+https://github.com/XuehaiPan/nvitop.git#egg=nvitop
 # mlflow packages
 mlflow-skinny
 pycocotools
-opencv-python
+opencv-python-headless
 # foundation model packages
 torch
 matplotlib
