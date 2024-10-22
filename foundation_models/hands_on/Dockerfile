@@ -33,10 +33,14 @@ RUN pip install -r requirements.txt
 # copy required files
 COPY --chown=jovyan:users .env ./
 COPY --chown=jovyan:users data ./data
-COPY --chown=jovyan:users images ./images
+COPY --chown=jovyan:users notebook_images ./notebook_images
 COPY --chown=jovyan:users SAM_checkpoints ./SAM_checkpoints
 COPY --chown=jovyan:users rag.ipynb ./
 COPY --chown=jovyan:users segmentation.ipynb ./
+
+# download the SAM model weights 
+RUN chmod +x ./SAM_checkpoints/download_checkpoints.sh && \
+    ./SAM_checkpoints/download_checkpoints.sh
 
 # switch user to jovyan
 USER jovyan
