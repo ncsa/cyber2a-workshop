@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     git \
     vim
+
+# comment out the next command if running in local. These packages are needed in the deployment instance.
 RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb -o cuda-keyring.deb && \
     dpkg -i cuda-keyring.deb && \
     apt-get update && \
@@ -30,8 +32,20 @@ COPY --chown=jovyan:users requirements.txt ./
 RUN pip install -r requirements.txt
 
 # copy required files
-COPY --chown=jovyan:users foundation_models/hands_on ./foundation_models
 COPY --chown=jovyan:users mlflow/hands_on ./mlflow
+
+COPY --chown=jovyan:users foundation_models/hands_on/SAM_checkpoints ./foundation_models/SAM_checkpoints
+# download the SAM model weights 
+RUN chmod +x foundation_models/SAM_checkpoints/download_checkpoints.sh && \
+    ./foundation_models/SAM_checkpoints/download_checkpoints.sh
+
+COPY --chown=jovyan:users foundation_models/hands_on/.env ./foundation_models/.env
+COPY --chown=jovyan:users foundation_models/hands_on/data ./foundation_models/data
+COPY --chown=jovyan:users foundation_models/hands_on/notebook_images ./foundation_models/notebook_images
+
+# copy jupyter code last
+COPY --chown=jovyan:users foundation_models/hands_on/rag.ipynb ./foundation_models/rag.ipynb
+COPY --chown=jovyan:users foundation_models/hands_on/segmentation.ipynb ./foundation_models/segmentation.ipynb
 
 # switch user to jovyan
 USER jovyan
