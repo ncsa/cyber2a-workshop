@@ -1,8 +1,8 @@
 FROM jupyter/base-notebook:python-3.10
 
-LABEL maintainer="Minu Mathew <minum@illinois.edu> Sandeep Puthanveetil Satheesan <sandeeps@illinois.edu> Ben Galewsky <bengal1@illinois.edu>"
+LABEL org.opencontainers.image.authors="Minu Mathew <minum@illinois.edu>, Sandeep Puthanveetil Satheesan <sandeeps@illinois.edu>, Ben Galewsky <bengal1@illinois.edu>"
 
-# nvidia-container-runtime
+# set environment variables
 ENV PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:${PATH}
 ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64
 ENV CUDA_VERSION=12.2.0
@@ -18,14 +18,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     vim
 
-# comment out the next command if running in local. These packages are needed in the deployment instance.
-RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb -o cuda-keyring.deb && \
-    dpkg -i cuda-keyring.deb && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends cuda-cudart-12-2 cuda-compat-12-2 && \
-    rm -rf /var/lib/apt/lists/* && \
-    echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
-    echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
+# TODO: Important - the commented out command is not needed when building this Dockerfile on your local machine. It may be needed for deployment to an instance.
+#RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb -o cuda-keyring.deb && \
+#    dpkg -i cuda-keyring.deb && \
+#    apt-get update && \
+#    apt-get install -y --no-install-recommends cuda-cudart-12-2 cuda-compat-12-2 && \
+#    rm -rf /var/lib/apt/lists/* && \
+#    echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
+#    echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
 
 # install extra software
 COPY --chown=jovyan:users requirements.txt ./
