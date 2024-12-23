@@ -1,5 +1,0 @@
-Images for Segmentation Hands-On using SAM-2
-
-Citation: Jason Amundson. (2019). LeConte Glacier Unmanned Aerial Vehicle (UAV) imagery, LeConte Glacier, Alaska, 2018. Arctic Data Center. doi:10.18739/A2445HC19. 
-
-Images used in this hands-on session are from the following zip file: https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2445HC19#urn%3Auuid%3Af426289f-43cb-4c74-97ed-e7fc04951fc0
