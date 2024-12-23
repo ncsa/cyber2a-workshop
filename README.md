@@ -1,7 +1,7 @@
 # Supplementary materials for the hands-on lab sessions on AI Workflows and Foundation Models as part of the Cyber2A Workshop 2024: AI for Arctic Research
 
 Authors:
-Ben Galewsky <bengal1@illinois.edu>, Sandeep Puthanveetil Satheesan <sandeeps@illinois.edu>, Minu Mathew <minum@illinos.edu>
+Minu Mathew <minum@illinos.edu>, Sandeep Puthanveetil Satheesan <sandeeps@illinois.edu>, Ben Galewsky <bengal1@illinois.edu>
 
 ## Installation instructions
 
@@ -30,3 +30,7 @@ View the logs of the `docker run` command above, and open your browser and go to
 ## Workshop Details
 
 For more details about the concluded workshop, visit [Cyber2A Workshop 2024](https://cyber2a.github.io/cyber2a-workshop/).
+
+## Course Materials
+
+The course materials from the Cyber2A Workshop 2024 are available at [Cyber2A Course](https://cyber2a.github.io/cyber2a-course/).
